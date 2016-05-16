@@ -1,5 +1,6 @@
 package ness.tomerbu.edu.toolbarsactualdemo;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,20 +58,31 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-      switch (id){
-          case R.id.action_settings:
-              Toast t = Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT);
-              t.setGravity(Gravity.CENTER, 0, 0);
-              t.show();
-              return true;
-          case R.id.action_dial:
-              Toast.makeText(MainActivity.this, "Dial", Toast.LENGTH_SHORT).show();
-              return true;
-          case R.id.action_web:
-              Toast.makeText(MainActivity.this, "Web", Toast.LENGTH_SHORT).show();
-              return true;
-      }
-
+        switch (id){
+            case R.id.action_color:
+                randColor();
+                return true;
+            case R.id.action_snack:
+                showSnack();
+                return true;
+        }
         return false;
+    }
+
+    private void showSnack() {
+        Snackbar.make(findViewById(R.id.fab), "Undo Changes?", Snackbar.LENGTH_INDEFINITE)
+                .setAction("Undo", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(MainActivity.this, "Undo", Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
+
+    }
+
+    private void randColor() {
+        Random r = new Random();
+        int color = Color.rgb(r.nextInt(256), r.nextInt(256), r.nextInt(256));
+        findViewById(R.id.layout).setBackgroundColor(color);
     }
 }

@@ -3,23 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="ness.tomerbu.edu.toolbarsactualdemo.MainActivity">
 
-    <item android:id="@+id/action_dial"
-        android:icon="@android:drawable/ic_dialog_dialer"
-        android:title="Dial"
+    <item
+        android:title="randColor"
+        android:id="@+id/action_color"
+        android:icon="@android:drawable/ic_input_add"
         app:showAsAction="ifRoom"/>
 
-
-    <item android:id="@+id/action_web"
-        android:icon="@android:drawable/ic_dialog_map"
-        android:title="map"
-        app:showAsAction="ifRoom"/>
-
-
-    <item android:id="@+id/action_settings"
-        android:title="Settings"
-        app:showAsAction="never"
-        android:orderInCategory="100"
-        />
+    <item
+        android:title="SnackBar"
+        android:id="@+id/action_snack"
+        app:showAsAction="never"/>
 
 
 </menu>
